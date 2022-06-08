@@ -1,11 +1,16 @@
 package jana60.biglietteria;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CalcolaBiglietto {
 
 	public static void main(String[] args) {
+		
 		Scanner scanner = new Scanner(System.in);
+		
+		DecimalFormat df = new DecimalFormat("#0.00€");
+		
 		// costanti
 		double costoAlKm = 0.21;
 		double percScontoMinorenni = 0.20;
@@ -19,7 +24,7 @@ public class CalcolaBiglietto {
 		System.out.print("Inserire l'età del passeggero: ");
 		etaPasseggero = scanner.nextInt();
 		
-		System.out.println("Inserire il numero di km: ");
+		System.out.print("Inserire il numero di km: ");
 		kmDaPercorrere = scanner.nextDouble();
 		
 		// calcolo del prezzo base
@@ -38,7 +43,7 @@ public class CalcolaBiglietto {
 			prezzoFinale = prezzoBase;
 		}
 		
-		System.out.println("Il prezzo del biglietto è " + prezzoFinale);
+		System.out.println("Il prezzo del biglietto è " + df.format(prezzoFinale));
 		
 		// chiudo lo scanner
 		scanner.close();
